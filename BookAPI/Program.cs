@@ -1,4 +1,5 @@
 using BookAPI.Model;
+using BookAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookContext>(x=> x.UseSqlite("Data source=books.db"));
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 
