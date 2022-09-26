@@ -32,7 +32,7 @@ namespace BookAPI.Repository
         }
         async Task IBookRepository.Update(Book book)
         {
-            _context.Entry(book).State = EntityState.Modified;
+            this._context.Entry(book).State = EntityState.Modified;
             await this._context.SaveChangesAsync();
         }
     }
